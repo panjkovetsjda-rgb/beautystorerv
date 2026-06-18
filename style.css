@@ -1,0 +1,1373 @@
+:root{
+    --pink:#ec4899;
+    --light-pink:#fce7f3;
+    --dark:#374151;
+    --white:#ffffff;
+    --gray:#f3f4f6;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:var(--gray);
+    color:var(--dark);
+    padding-top:80px;
+}
+
+/* Меню */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:var(--pink);
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#ffe4f2;
+}
+
+/* Головний банер */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:var(--light-pink);
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 24px;
+    background:var(--pink);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* Заголовки сторінок */
+.page-header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+/* Flexbox */
+.cards,
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    padding:40px 20px;
+}
+
+.card,
+.product-card{
+    width:250px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+    animation:show 1s ease;
+}
+
+.card:hover,
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card span{
+    display:block;
+    margin-top:10px;
+    color:var(--pink);
+    font-weight:bold;
+}
+
+/* Таблиця */
+.table-section{
+    padding:30px;
+}
+
+table{
+    width:80%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+table,
+th,
+td{
+    border:1px solid #ccc;
+}
+
+th{
+    background:var(--pink);
+    color:white;
+}
+
+th,
+td{
+    padding:12px;
+    text-align:center;
+}
+
+/* Grid */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    padding:30px;
+}
+
+.box{
+    background:var(--light-pink);
+    padding:40px;
+    text-align:center;
+    border-radius:10px;
+}
+
+/* Контакти */
+.contact-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    padding:40px;
+}
+
+.contact-info{
+    width:300px;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    width:350px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.contact-form button{
+    padding:12px;
+    border:none;
+    background:var(--pink);
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.contact-form button:hover{
+    opacity:0.9;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    background:var(--pink);
+    color:white;
+}
+
+/* Анімація */
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ID селектор */
+#main-title{
+    color:var(--pink);
+}
+
+/* Прямий нащадок */
+#dashboard > section{
+    background:rgb(0, 0, 0);
+    padding:15px;
+}
+
+/* Інший прямий нащадок */
+#dash2 > section{
+    background:rgb(255, 1, 157);
+    color:white;
+    padding:15px;
+}
+
+/* Атрибути */
+.status[data-type="active"]{
+    background:rgb(0, 0, 0);
+    color:white;
+    padding:15px;
+    margin:10px;
+}
+
+.status[data-type="alert"]{
+    background:rgb(0, 0, 0);
+    color:white;
+    padding:15px;
+    margin:10px;
+}
+
+/* Сусідній елемент */
+.title + p{
+    background:rgb(255, 0, 234);
+    padding:10px;
+}
+
+/* Всі сусідні */
+article p ~ .box{
+    background:rgb(255, 0, 221);
+    color:white;
+    padding:15px;
+    margin:10px;
+}
+
+/* Вкладеність */
+.sidebar div ul li{
+    background:rgb(0, 0, 0);
+    margin:5px;
+    padding:5px;
+    list-style:none;
+}
+
+#dash2 .sidebar div ul li{
+    background:rgb(0, 0, 0);
+    color:white;
+}
+.cart-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    margin:10px 40px;
+
+    background:#f5f5f5;
+
+    border-left:4px solid #ff2d75;
+
+}
+
+.cart-item button{
+
+    background:red;
+
+    color:white;
+
+    border:none;
+
+    padding:8px;
+
+    cursor:pointer;
+
+}
+.checkout-btn{
+
+    display:block;
+
+    margin:20px auto;
+
+    padding:12px 25px;
+
+    background:#ff2d75;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    transition:0.3s;
+
+}
+
+.checkout-btn:hover{
+
+    background:#be185d;
+
+}
+.checkout-box{
+
+    max-width:400px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.checkout-box input{
+
+    padding:10px;
+
+    border:1px solid #ccc;
+
+}
+
+.checkout-box button{
+
+    padding:12px;
+
+    background:#ff2d75;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    text-transform:uppercase;
+
+}
+
+.checkout-box button:hover{
+
+    background:#be185d;
+
+}
+
+/* THANK YOU PAGE */
+
+.thankyou{
+
+    text-align:center;
+
+    padding:100px 20px;
+
+}
+
+.thankyou h1{
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+}
+/* Обнулення базових відступів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Навігація */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e75480; /* красивий стриманий рожевий */
+    padding: 15px 10%;
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav .menu a:hover {
+    opacity: 0.8;
+}
+
+/* Заголовок сторінки */
+.page-header {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    color: #222;
+    position: relative;
+    display: inline-block;
+}
+
+.page-header h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #e75480;
+    margin: 8px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Блок спеціальних пропозицій (Умови акцій) */
+.sale-info {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.sale-info h2.title {
+    color: #e75480;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.sale-info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Стилізація списків умов */
+.sale-info ul, .sale-info ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.sale-info li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* СЕТКА АКЦІЙ (Картки товарів) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+/* Красиві картки категорій */
+.gallery .box {
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 35px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(231, 84, 128, 0.15);
+    border-color: #e75480;
+}
+
+.gallery .box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.gallery .box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e75480; 
+    background: #fff0f5;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Нижні плашки (Популярна акція / Обмежена пропозиція) */
+article {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+article > p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.article-badges {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Перетворюємо нижні рожеві смуги на красиві акуратні кнопки-банери */
+article .box {
+    flex: 1;
+    max-width: 300px;
+    background-color: #fff0f5;
+    border: 2px dashed #e75480;
+    color: #e75480;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+}
+/* Обнулення базових відступів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Навігація */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e75480; /* фірмовий рожевий */
+    padding: 15px 10%;
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav .menu a:hover {
+    opacity: 0.8;
+}
+
+/* Головний баннер (Hero Section) */
+.hero {
+    background-color: #fff0f5; /* ніжний рожевий фон */
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Красива кнопка */
+.hero .btn {
+    display: inline-block;
+    background-color: #e75480;
+    color: white;
+    text-decoration: none;
+    padding: 14px 35px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(231, 84, 128, 0.3);
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #c71585;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 84, 128, 0.4);
+}
+
+/* Про наш магазин */
+.about {
+    max-width: 800px;
+    margin: 60px auto 40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.about h2 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.about h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #e75480;
+    margin: 8px auto 0 auto;
+    border-radius: 2px;
+}
+
+.about p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Сетка категорій товарів */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+/* Картки */
+.categories .box {
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.categories .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-color: #fff0f5;
+}
+
+.categories .box h3 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.categories .box p {
+    font-size: 15px;
+    color: #777;
+}
+
+/* Футер */
+footer {
+    background-color: #222;
+    color: #999;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+
+/* Підключаємо сучасний та елегантний шрифт Montserrat з Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* застосовуємо шрифт до всього сайту */
+}
+
+body {
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Навігація */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e75480;
+    padding: 18px 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav .menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Анімація підкреслення посилань у меню при наведенні */
+nav .menu a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav .menu a:hover::after {
+    width: 100%;
+}
+
+/* Секція Контактів */
+.contact-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header h1 {
+    font-size: 32px;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    font-size: 15px;
+    color: #e75480;
+    font-weight: 500;
+}
+
+/* Сітка: Контакти зліва, Форма справа */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    align-items: start;
+}
+
+/* Ліва панель (Інформація) */
+.contact-info h2 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.info-item {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Права панель (Форма вводу) */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стиль полів вводу */
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: all 0.3s ease; /* плавна анімація при натисканні */
+    outline: none;
+}
+
+/* Ефект фокусу (коли клікаємо в поле) */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: #e75480;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(231, 84, 128, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Красива анімована кнопка відправки */
+.btn-submit {
+    background-color: #e75480;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(231, 84, 128, 0.2);
+}
+
+.btn-submit:hover {
+    background-color: #c71585;
+    transform: translateY(-2px); /* кнопка злегка підстрибує */
+    box-shadow: 0 6px 18px rgba(231, 84, 128, 0.35);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Нижня віджет-плашка (замість страшних чорних смуг) */
+.status-badge {
+    text-align: center;
+    margin-top: 30px;
+    background-color: #fff0f5;
+    color: #e75480;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Футер */
+footer {
+    background-color: #222;
+    color: #888;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 13px;
+}
+
+/* Підключаємо сучасний та елегантний шрифт Montserrat з Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* застосовуємо шрифт до всього сайту */
+}
+
+body {
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Навігація */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e75480;
+    padding: 18px 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav .menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Анімація підкреслення посилань у меню при наведенні */
+nav .menu a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav .menu a:hover::after {
+    width: 100%;
+}
+
+/* Підключаємо стильний шрифт Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Верхня навігація */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e75480; /* фірмовий рожевий */
+    padding: 15px 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav .menu a:hover {
+    opacity: 0.8;
+}
+
+/* Заголовки сторінки */
+.page-header {
+    text-align: center;
+    padding: 40px 20px 10px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    color: #222;
+}
+
+/* СІТКА ДЛЯ КАРТОК (в один красивий ряд) */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+/* Картки товарів */
+.product-card {
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ефект підстрибування картки при наведенні */
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(231, 84, 128, 0.15);
+    border-color: #e75480;
+}
+
+/* ФОТОГРАФІЇ ТОВАРІВ */
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* акуратно обрізає під один розмір, не стискаючи */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.product-card .description {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 12px;
+    flex-grow: 1; /* вирівнює кнопки по нижньому краю, якщо текст різної довжини */
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #e75480;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* 🔥 КРАСИВІ КНОПКИ З АНІМАЦІЄЮ */
+.btn-buy {
+    background-color: #e75480;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 3px 10px rgba(231, 84, 128, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #c71585;
+    transform: scale(1.03); /* злегка збільшується */
+    box-shadow: 0 5px 15px rgba(231, 84, 128, 0.4);
+}
+
+.btn-buy:active {
+    transform: scale(0.97); /* ефект фізичного кліку */
+}
+
+/* СТИЛІЗАЦІЯ ТАБЛИЦІ */
+.popular-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.popular-section h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+th {
+    background-color: #e75480;
+    color: white;
+    padding: 14px 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f6f6f6;
+    color: #555;
+    font-size: 14px;
+}
+
+tr:hover td {
+    background-color: #fff0f5; /* рядок підсвічується при наведенні */
+}
+
+/* Футер */
+footer {
+    background-color: #222;
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: 5px;
+}
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+                url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+    text-align: center;
+}
+/* ЕСТЕТИЧНИЙ АПГРЕЙД ДЛЯ ГОЛОВНОЇ СТОРІНКИ */
+
+/* Задаємо новий шрифт для всієї сторінки */
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Твій оновлений блок героя з напівпрозорим фоном косметики */
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+                url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop') no-repeat center center !important;
+    background-size: cover !important;
+    padding: 100px 20px !important;
+    text-align: center;
+}
+
+/* Іконки всередині твоїх карток категорій */
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+/* Ефект плавного підйому для твоїх карток при наведенні */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 10px 25px rgba(231, 84, 128, 0.15) !important;
+}
+
+/* Стильний рожевий маркер під заголовком "Про наш магазин" */
+.about h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #e75480;
+    border-radius: 2px;
+}
+
+/* Стилі для нового блоку переваг */
+.features {
+    background-color: #fafafa;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.features h2 {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.feature-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.feature-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.feature-item p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+}
+/* АНІМОВАНИЙ БЛОК ГЕРОЯ */
+.hero {
+    position: relative !important;
+    overflow: hidden !important; /* Щоб фото при збільшенні не вилазило за межі блоку */
+    padding: 100px 20px !important;
+    text-align: center;
+    background: none !important; /* Скидаємо старий статичний фон */
+}
+
+/* Створюємо окремий шар для заднього фону, який буде рухатися */
+.hero::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    /* Наш ніжний напівпрозорий шар + те саме фото з косметикою */
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+                url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop') no-repeat center center / cover !important;
+    z-index: -1 !important; /* Ховаємо фон за текст */
+    
+ /* АНІМОВАНИЙ БЛОК ГЕРОЯ З НАДПОРУШЕННЯМ ПРІОРИТЕТУ */
+.hero {
+    position: relative !important;
+    overflow: hidden !important; 
+    padding: 100px 20px !important;
+    text-align: center !important;
+    background: none !important; /* Примусово ховаємо стару картинку, якщо вона прописана вище */
+}
+}

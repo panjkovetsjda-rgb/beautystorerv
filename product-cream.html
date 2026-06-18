@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Крем Soft Skin | Beauty Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-page-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+        }
+        .product-page-img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .product-page-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .product-page-info h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        .product-page-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e75480;
+            margin-bottom: 20px;
+        }
+        .product-full-description {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .btn-buy {
+            background-color: #e75480;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-buy:hover { background-color: #c71585; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #777;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover { color: #e75480; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Beauty Store</div>
+    <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="sale.html">Акції</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+        <li><a href="cart.html">🛒 Кошик</a></li>
+    </ul>
+</nav>
+
+<div style="max-width: 900px; margin: 30px auto 0; padding: 0 20px;">
+    <a href="catalog.html" class="back-link">← Назад до каталогу</a>
+</div>
+
+<div class="product-page-container">
+    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?q=80&w=600&auto=format&fit=crop" alt="Крем Soft Skin" class="product-page-img">
+    <div class="product-page-info">
+        <h1>Крем Soft Skin</h1>
+        <div class="product-page-price">499 грн</div>
+        <p class="product-full-description">
+            Інтенсивно зволожувальний крем для обличчя Soft Skin — це справжній ковток енергії для вашої шкіри. Його легка гелево-кремова текстура моментально тане під час нанесення, глибоко насичує клітини вологою, усуває лущення та дарує природне сяйво без жирного блиску.<br><br>
+            <strong>Активні компоненти:</strong><br>
+            • Гіалуронова кислота — утримує вологу всередині шкіри протягом 24 годин.<br>
+            • Екстракт алое та центелли — миттєво заспокоюють подразнення та вирівнюють тон.<br>
+            • Підходить як ідеальна база під макіяж для будь-якого типу шкіри.
+        </p>
+        <button class="btn-buy" onclick="addToCart('Крем Soft Skin', 499)">Додати в кошик</button>
+    </div>
+</div>
+
+<footer><p>© 2026 Beauty Store</p></footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addToCart(name, price){
+    cart.push({name, price});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Товар " + name + " додано в кошик!");
+}
+</script>
+</body>
+</html>

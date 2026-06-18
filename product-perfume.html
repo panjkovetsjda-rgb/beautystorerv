@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Парфуми Flower Dream | Beauty Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-page-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+        }
+        .product-page-img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .product-page-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .product-page-info h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        .product-page-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e75480;
+            margin-bottom: 20px;
+        }
+        .product-full-description {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .btn-buy {
+            background-color: #e75480;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-buy:hover { background-color: #c71585; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #777;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover { color: #e75480; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Beauty Store</div>
+    <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="sale.html">Акції</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+        <li><a href="cart.html">🛒 Кошик</a></li>
+    </ul>
+</nav>
+
+<div style="max-width: 900px; margin: 30px auto 0; padding: 0 20px;">
+    <a href="catalog.html" class="back-link">← Назад до каталогу</a>
+</div>
+
+<div class="product-page-container">
+    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="Парфуми Flower Dream" class="product-page-img">
+    <div class="product-page-info">
+        <h1>Парфуми Flower Dream</h1>
+        <div class="product-page-price">899 грн</div>
+        <p class="product-full-description">
+            Flower Dream — це витончений, невагомий та по-справжньому розкішний аромат, який розкривається на шкірі ніжним квітковим букетом. Він створений для романтичних та елегантних натур, які люблять залишати по собі легкий, загадковий та привабливий шлейф.<br><br>
+            <strong>Піраміда аромату:</strong><br>
+            • Верхні ноти: стигла рожева конвалія та свіжий цитрусовий акорд.<br>
+            • Ноти серця: вишукана півонія, біла троянда та жасмин.<br>
+            • Базові ноти: теплий стійкий мускус та благородний білий кедр.
+        </p>
+        <button class="btn-buy" onclick="addToCart('Парфуми Flower Dream', 899)">Додати в кошик</button>
+    </div>
+</div>
+
+<footer><p>© 2026 Beauty Store</p></footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addToCart(name, price){
+    cart.push({name, price});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Товар " + name + " додано в кошик!");
+}
+</script>
+</body>
+</html>

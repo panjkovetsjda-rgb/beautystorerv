@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформлення замовлення</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Додатковий стиль, щоб випадаючий список виглядав так само гарно, як твої інпути */
+        .checkout-box select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        /* Стиль для заблокованих полів (коли обрано оплату при отриманні) */
+        .checkout-box input:disabled {
+            background-color: #f0f0f0;
+            color: #aaa;
+            cursor: not-allowed;
+            border-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Beauty Store</div>
+    <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="sale.html">Акції</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+        <li><a href="cart.html">🛒 Кошик</a></li>
+    </ul>
+</nav>
+
+<section class="page-header">
+    <h1>Оформлення замовлення</h1>
+</section>
+
+<div class="checkout-box">
+    <h2>📦 Доставка</h2>
+    <input type="text" id="name" placeholder="Ім'я">
+    <input type="text" id="city" placeholder="Місто">
+    <input type="text" id="address" placeholder="Адреса доставки">
+
+    <h2>💳 Спосіб оплати</h2>
+    <select id="payment-method" onchange="toggleCardFields()">
+        <option value="card">Оплата карткою зараз</option>
+        <option value="cash">При отриманні (накладений платіж)</option>
+    </select>
+
+    <input type="text" id="card" placeholder="Номер картки">
+    <input type="text" id="date" placeholder="MM/YY">
+    <input type="text" id="cvv" placeholder="CVV">
+
+    <button onclick="placeOrder()">Підтвердити замовлення</button>
+</div>
+
+<script>
+// Функція, яка перевіряє що обрано: картою чи готівкою
+function toggleCardFields() {
+    let method = document.getElementById("payment-method").value;
+    let cardInput = document.getElementById("card");
+    let dateInput = document.getElementById("date");
+    let cvvInput = document.getElementById("cvv");
+
+    if (method === "cash") {
+        // Якщо при отриманні — вимикаємо поля картки і очищаємо їх
+        cardInput.disabled = true;
+        dateInput.disabled = true;
+        cvvInput.disabled = true;
+        cardInput.value = "";
+        dateInput.value = "";
+        cvvInput.value = "";
+    } else {
+        // Якщо карткою — знову вмикаємо
+        cardInput.disabled = false;
+        dateInput.disabled = false;
+        cvvInput.disabled = false;
+    }
+}
+
+function placeOrder(){
+    let method = document.getElementById("payment-method").value;
+    let message = "Замовлення прийняте, чекайте на смс!";
+
+    if (method === "cash") {
+        message = "Замовлення прийняте! Оплата при отриманні. Чекайте на смс з ТТН.";
+    }
+
+    // Просто показуємо віконце
+    alert(message);
+
+    // Очищаємо кошик у пам'яті
+    localStorage.removeItem("cart");
+
+    // Очищаємо всі поля
+    document.getElementById("name").value = "";
+    document.getElementById("city").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("card").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("cvv").value = "";
+    
+    // Повертаємо вибір на першу опцію
+    document.getElementById("payment-method").value = "card";
+    toggleCardFields();
+}
+</script>
+
+</body>
