@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | Beauty Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Функція для обробки натискання кнопки "Надіслати"
+function sendMessage() {
+    let name = document.getElementById("user-name").value.trim();
+    let email = document.getElementById("user-email").value.trim();
+
+    // Перевірка, чи ввів користувач хоча б ім'я та пошту
+    if (name === "" || email === "") {
+        alert("Будь ласка, заповніть обов'язкові поля (Ім'я та Email)!");
+        return;
+    }
+
+    // Головне сповіщення для клієнта
+    alert(`Дякуємо,вам! Ваше повідомлення успішно надіслано. Наш менеджер скоро з вами зв'яжеться! ✨`);
+    
+    // Очищаємо форму після відправки
+    document.getElementById("contact-form").reset();
+}
+</script>
+<body>
+
+<nav>
+    <div class="logo">Beauty Store</div>
+    <ul class="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="sale.html">Акції</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+        <li><a href="cart.html">🛒 Кошик</a></li>
+    </ul>
+</nav>
+
+<section class="page-header" style="text-align: center; padding: 40px 0 20px;">
+    <h1>Зв'яжіться з нами</h1>
+</section>
+
+<div style="max-width: 900px; margin: 0 auto 60px; padding: 0 20px; display: flex; justify-content: space-between; gap: 40px; align-items: flex-start;">
+    
+    <div style="flex: 1;">
+        <h3 style="font-size: 20px; margin-bottom: 20px; color: #222;">Наші контакти</h3>
+        <p style="margin: 10px 0; color: #555;">📍 м. Рівне, Україна</p>
+        <p style="margin: 10px 0; color: #555;">📞 +380 67 123 45 67</p>
+        <p style="margin: 10px 0; color: #555;">✉️ beauty@store.com</p>
+    </div>
+
+    <div style="flex: 1; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" id="user-name" placeholder="Ваше ім'я" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" required>
+            <input type="email" id="user-email" placeholder="Ваш Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" required>
+            <input type="tel" placeholder="Номер телефону" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+            <textarea placeholder="Ваше повідомлення" rows="4" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; resize: none;"></textarea>
+            
+            <button type="button" onclick="sendMessage()" style="background-color: #e75480; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.backgroundColor='#c71585'" onmouseout="this.style.backgroundColor='#e75480'">
+                Надіслати
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<footer style="background-color: #222; color: #bbb; text-align: center; padding: 35px 20px; font-size: 14px; line-height: 1.8;">
+    <p style="margin: 0 0 8px 0; color: #fff; font-weight: 500; letter-spacing: 0.5px;">🟢 Замовлення приймаються цілодобово</p>
+    <p style="margin: 0 0 15px 0; color: #e75480; font-weight: 600;">Beauty Store завжди рада вашим замовленням!</p>
+    <div style="width: 50px; height: 1px; background-color: #444; margin: 0 auto 15px;"></div>
+    <p style="margin: 0; color: #777; font-size: 12px;">© 2026 Beauty Store. Всі права захищені.</p>
+</footer>
+
+</body>
+</html>
